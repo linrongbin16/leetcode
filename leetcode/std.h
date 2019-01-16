@@ -1,9 +1,11 @@
-#include <cstring>
-#include <cstdlib>
+#pragma once
+#include <algorithm>
 #include <cmath>
+#include <cstdlib>
+#include <cstring>
 #include <iostream>
 #include <list>
-#include <vector>
-#include <algorithm>
 #include <utility>
+#include <vector>
 using namespace std;
+
