@@ -11,5 +11,5 @@
 *.idb
 *.vcxproj
 *.vcxproj.filters
-*.filters
+*.vcxproj.user
 *.sln
