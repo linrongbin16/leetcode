@@ -9,3 +9,7 @@
 *.obj
 *.exe
 *.idb
+*.vcxproj
+*.vcxproj.filters
+*.filters
+*.sln
