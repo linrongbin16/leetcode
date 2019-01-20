@@ -20,7 +20,6 @@ void dumpList(ListNode *l) {
 }
 
 int main(void) {
-  int x;
   Solution s;
   ListNode *l1, *l2;
 
@@ -32,12 +31,11 @@ int main(void) {
 
   int s3[] = {5};
   int s4[] = {5};
-  int x;
   l1 = createList(s3, 1);
   l2 = createList(s4, 1);
   dumpList(s.addTwoNumbers(l1, l2));
 
-  cin >> x;
+  pause();
   return 0;
 }
 
