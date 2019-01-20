@@ -14,3 +14,10 @@
 #include <vector>
 using namespace std;
 
+#define pause()                                                                \
+  {                                                                            \
+    int x;                                                                     \
+    cin >> x;                                                                  \
+  }                                                                            \
+  while (0)
+
