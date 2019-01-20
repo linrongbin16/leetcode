@@ -30,7 +30,10 @@ public:
       }
     }
 
-    int result = f[n - 1];
+    int result = 0;
+    for (int i = 0; i < n; i++) {
+      result = std::max(result, f[i]);
+    }
     delete[] f;
     return result;
   }
