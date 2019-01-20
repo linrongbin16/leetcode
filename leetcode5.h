@@ -2,17 +2,36 @@
 
 class Solution {
 public:
-  int MAX = 1001;
+  int n;
+
+  int **createTable() {
+    int **f = new int *[n];
+    for (int i = 0; i < n; i++) {
+      f[i] = new int[n];
+      memset(f[i], 0, n * sizeof(int));
+    }
+    return f;
+  }
+
+  void freeTable(int **f) {
+    for (int i = 0; i < n; i++) {
+      delete[] f[i];
+    }
+    delete[] f;
+  }
 
   string longestPalindrome(string s) {
-    int n = s.length();
-    int f[MAX][MAX];
-    memset(f, 0, MAX * MAX * sizeof(int *));
+    n = s.length();
+    if (n <= 0) {
+      return "";
+    }
+    int **f = createTable();
+    for (int i = 0; i < n; i++) {
+      f[i][i] = 1;
+    }
     for (int i = 0; i < n; i++) {
       for (int j = i; j < n; j++) {
-        if (i == j) {
-          f[i][j] = 1;
-        } else {
+        if (i != j) {
           if (i + 1 <= j - 1) {
             f[i][j] = (s[i] == s[j]) ? (f[i + 1][j - 1] + 2) : f[i + 1][j - 1];
           } else {
@@ -23,7 +42,7 @@ public:
     }
     int start, end, len = 0;
     for (int i = 0; i < n; i++) {
-      for (int j = 0; j < n; j++) {
+      for (int j = i; j < n; j++) {
         if (len < f[i][j]) {
           len = f[i][j];
           start = i;
@@ -32,6 +51,7 @@ public:
       }
     }
     string result = s.substr(start, end - start + 1);
+    freeTable(f);
     return result;
   }
 };
