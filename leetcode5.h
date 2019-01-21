@@ -2,67 +2,46 @@
 
 class Solution {
 public:
-  int n;
-
-  int **createTable() {
-    int **f = new int *[n];
-    for (int i = 0; i < n; i++) {
-      f[i] = new int[n];
-      memset(f[i], 0, n * sizeof(int));
+  bool palindrome(const char *s, int len) {
+    assert(len > 0);
+    if (len <= 1) {
+      return true;
     }
-    return f;
-  }
-
-  void freeTable(int **f) {
-    for (int i = 0; i < n; i++) {
-      delete[] f[i];
-    }
-    delete[] f;
-  }
-
-  void dumpTable(int **f) {
-    cout << endl << endl;
-    for (int i = 0; i < n; i++) {
-      for (int j = 0; j < n; j++) {
-        cout << "f[" << i << "," << j << "]: " << f[i][j] << "  ";
+    int i = 0;
+    int j = len - 1;
+    while (i <= j) {
+      if (s[i] != s[j]) {
+        return false;
       }
-      cout << endl;
+      i++;
+      j--;
     }
-    cout << endl << endl;
+    return true;
   }
 
   string longestPalindrome(string s) {
-    n = s.length();
-    if (n <= 0) {
-      return "";
+    int n = s.length();
+    if (n <= 1) {
+      return s;
     }
-    int **f = createTable();
-    for (int i = 0; i < n; i++) {
-      f[i][i] = 1;
-    }
-    for (int i = 0; i < n; i++) {
-      for (int j = i; j < n; j++) {
-        if (i != j) {
-          if (i + 1 <= j - 1) {
-            f[i][j] = (s[i] == s[j]) ? (f[i + 1][j - 1] + 2) : f[i + 1][j - 1];
-          } else {
-            f[i][j] = (s[i] == s[j]) ? 2 : 0;
+    string result = "";
+
+    for (int i = 0; i < n - 1; i++) {
+      if (result.length() > n - i) {
+        break;
+      }
+      for (int j = n - i; j > 0; j--) {
+        if (result.length() >= j) {
+          break;
+        }
+        if (palindrome(s.c_str() + i, j)) {
+          if (j > result.length()) {
+            result = s.substr(i, j);
+            break;
           }
         }
       }
     }
-    int start, end, len = 0;
-    for (int i = 0; i < n; i++) {
-      for (int j = i; j < n; j++) {
-        if (len < f[i][j]) {
-          len = f[i][j];
-          start = i;
-          end = j;
-        }
-      }
-    }
-    string result = s.substr(start, end - start + 1);
-    freeTable(f);
     return result;
   }
 };
