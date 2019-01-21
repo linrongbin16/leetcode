@@ -20,6 +20,17 @@ public:
     delete[] f;
   }
 
+  void dumpTable(int **f) {
+    cout << endl << endl;
+    for (int i = 0; i < n; i++) {
+      for (int j = 0; j < n; j++) {
+        cout << "f[" << i << "," << j << "]: " << f[i][j] << "  ";
+      }
+      cout << endl;
+    }
+    cout << endl << endl;
+  }
+
   string longestPalindrome(string s) {
     n = s.length();
     if (n <= 0) {
