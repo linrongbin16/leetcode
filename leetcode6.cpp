@@ -2,7 +2,9 @@
 
 int main(void) {
   Solution s;
-  cout << endl;
+  cout << s.convert("PAYPALISHIRING", 3) << endl;
+  cout << s.convert("PAYPALISHIRING", 4) << endl;
+  pause();
   return 0;
 }
 
