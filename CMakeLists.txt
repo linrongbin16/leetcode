@@ -10,4 +10,5 @@ add_executable(lc3.exe LongestSubstringWithoutRepeatingCharacters-3.cpp LongestS
 add_executable(lc5.exe LongestPalindromicSubstring-5.cpp LongestPalindromicSubstring-5.h)
 add_executable(lc6.exe ZigZagConversion-6.cpp ZigZagConversion-6.h)
 add_executable(lc7.exe ReverseInteger-7.cpp ReverseInteger-7.h)
+add_executable(lc8.exe StringToIntegerAtoi-8.cpp StringToIntegerAtoi-8.h)
 add_executable(lc9.exe PalindromeNumber-9.cpp PalindromeNumber-9.h)
