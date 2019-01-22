@@ -2,24 +2,35 @@
 
 class Solution {
 public:
-  string convert(string s, int numRows) {
-    string result = s;
+  bool isHead(int index, int numRows) {
+    return index % max(2 * numRows - 2, 1) == 0;
+  }
+  bool isTail(int index, int numRows) {
+    return index % max(2 * numRows - 2, 1) == numRows - 1;
+  }
 
-    int p = 1, next;
-    result[0] = s[0];
+  string convert(string s, int numRows) {
+    if (s.length() <= 1) {
+      return s;
+    }
+    string result = s;
+    int distance = max(2 * numRows - 2, 1);
+    int p = 0;
+
     for (int i = 0; i < numRows; i++) {
-      int len = 2 * (numRows - i) - 1;
-      next = (i + 1) * len - 1;
-      if (next >= s.length()) {
-        break;
-      }
-      result[p++] = s[next];
-      if (i > 0) {
-        next += 2 * i;
-        if (next >= s.length()) {
-          break;
+      if (isHead(i, numRows) || isTail(i, numRows)) {
+        for (int j = i; j < s.length(); j += distance) {
+          result[p++] = s[j];
         }
-        result[p++] = s[next];
+      } else {
+        for (int j = i; j < s.length(); j += distance) {
+          result[p++] = s[j];
+          int offset = j % distance;
+          int next = j + 2 * (numRows - offset - 1);
+          if (next < s.length()) {
+            result[p++] = s[next];
+          }
+        }
       }
     }
 
