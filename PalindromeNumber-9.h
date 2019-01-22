@@ -5,8 +5,7 @@ public:
   bool isPalindrome(int x) {
     bool negative = x < 0;
     string result = "";
-    x = (x < 0) ? (-x) : x;
-    while (x > 0) {
+    while (x != 0) {
       result += (char)(x % 10 + (int)'0');
       x /= 10;
     }
@@ -18,6 +17,8 @@ public:
       if (result[i] != result[j]) {
         return false;
       }
+      i++;
+      j--;
     }
     return true;
   }

@@ -6,6 +6,8 @@ int main(void) {
   cout << s.isPalindrome(121) << endl;
   cout << s.isPalindrome(-121) << endl;
   cout << s.isPalindrome(10) << endl;
+  cout << s.isPalindrome(-2147483648) << endl;
+  pause();
   return 0;
 }
 
