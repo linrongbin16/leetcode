@@ -1,4 +1,4 @@
-#include "leetcode6.h"
+#include "ZigZagConversion-6.h"
 
 int main(void) {
   Solution s;
