@@ -15,4 +15,4 @@
 *.sln
 .vs
 .vscode
-.bin/
+.bin
