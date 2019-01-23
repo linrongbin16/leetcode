@@ -3,36 +3,40 @@
 class Solution {
 public:
   bool isWhiteSpace(char c) { return c == ' '; }
-  bool isPlusMinus(char c) { return c == '+' || c == '-'; }
   bool isPlus(char c) { return c == '+'; }
   bool isMinus(char c) { return c == '-'; }
   bool isDigit(char c) { return (int)c >= (int)'0' && (int)c <= (int)'9'; }
 
   int myAtoi(string str) {
-    int result = 0;
-    bool negative = false;
-    bool startParsing = false;
+    string result = "";
     for (int i = 0; i < str.length(); i++) {
       if (isWhiteSpace(str[i])) {
-        if (!startParsing) {
-          continue;
-        } else {
+        if (result.length() > 0) {
           break;
         }
+        continue;
       }
-
-      startParsing = true;
-      if (isPlusMinus(str[i])) {
-        if (i - 1 >= 0 && isWhiteSpace(str[i - 1])) {
-          if (isMinus(str[i])) {
-            negative = true;
-          }
+      if (isPlus(str[i]) || isMinus(str[i])) {
+        if (result.length() > 0) {
+          break;
         }
-        if (i - 1 >= 0 && !isWhiteSpace(str[i - 1])) {
-        }
+        result += str[i];
+        continue;
       }
+      if (!isDigit(str[i])) {
+        break;
+      }
+      result += str[i];
     }
-    return result;
+
+    long long ll = atoll(result.c_str());
+    if (ll > (long long)INT_MAX) {
+      return INT_MAX;
+    }
+    if (ll < (long long)INT_MIN) {
+      return INT_MIN;
+    }
+    return (int)ll;
   }
 };
 
