@@ -12,14 +12,13 @@ public:
     if (!head) {
       return false;
     }
-
-    unordered_set<ListNode *> valueSet;
-    while (head) {
-      if (valueSet.find(head) != valueSet.end()) {
+    ListNode *walk = head, *run = head;
+    while (run->next != NULL && run->next->next != NULL) {
+      walk = walk->next;
+      run = run->next->next;
+      if (walk == run) {
         return true;
       }
-      valueSet.insert(head);
-      head = head->next;
     }
     return false;
   }
