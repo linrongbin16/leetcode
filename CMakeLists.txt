@@ -1,17 +1,8 @@
 cmake_minimum_required(VERSION 3.4)
 
 project(leetcode CXX)
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-include_directories(.)
-add_executable(lc2.exe AddTwoNumbers-2.cpp AddTwoNumbers-2.h)
-add_executable(lc3.exe LongestSubstringWithoutRepeatingCharacters-3.cpp LongestSubstringWithoutRepeatingCharacters-3.h)
-add_executable(lc5.exe LongestPalindromicSubstring-5.cpp LongestPalindromicSubstring-5.h)
-add_executable(lc6.exe ZigZagConversion-6.cpp ZigZagConversion-6.h)
-add_executable(lc7.exe ReverseInteger-7.cpp ReverseInteger-7.h)
-add_executable(lc8.exe StringToIntegerAtoi-8.cpp StringToIntegerAtoi-8.h)
-add_executable(lc9.exe PalindromeNumber-9.cpp PalindromeNumber-9.h)
-add_executable(lc11.exe ContainerWithMostWater-11.cpp ContainerWithMostWater-11.h)
-add_executable(lc143.exe RecorderList-143.cpp RecorderList-143.h)
-add_executable(lc148.exe SortList-148.cpp SortList-148.h)
+add_subdirectory(linked-list)
+add_subdirectory(dynamic-programming)
+add_subdirectory(other)
+
