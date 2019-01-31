@@ -8,6 +8,20 @@ struct ListNode {
 
 class Solution {
 public:
-  bool hasCycle(ListNode *head) {}
+  bool hasCycle(ListNode *head) {
+    if (!head) {
+      return false;
+    }
+
+    unordered_set<ListNode *> valueSet;
+    while (head) {
+      if (valueSet.find(head) != valueSet.end()) {
+        return true;
+      }
+      valueSet.insert(head);
+      head = head->next;
+    }
+    return false;
+  }
 };
 
