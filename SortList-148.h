@@ -8,9 +8,10 @@ struct ListNode {
 
 class Solution {
 public:
+  ListNode *ll = new ListNode(0);
+
   ListNode *merge(ListNode *l1, ListNode *l2) {
-    ListNode *l = new ListNode(0);
-    ListNode *p = l;
+    ListNode *p = ll;
 
     while (l1 != NULL && l2 != NULL) {
       if (l1->val < l2->val) {
@@ -29,7 +30,9 @@ public:
     if (l2 != NULL)
       p->next = l2;
 
-    return l->next;
+    p = ll->next;
+    ll->next = NULL;
+    return p;
   }
 
   ListNode *sortList(ListNode *head) {
