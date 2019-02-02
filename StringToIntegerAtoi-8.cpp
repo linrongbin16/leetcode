@@ -8,7 +8,6 @@ int main(void) {
   cout << s.myAtoi("words and 873") << endl;
   cout << s.myAtoi("-91283472332") << endl;
   cout << s.myAtoi("   +0 123") << endl;
-  pause();
   return 0;
 }
 

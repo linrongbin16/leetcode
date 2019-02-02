@@ -31,7 +31,6 @@ int main(void) {
   dumpList(s.partition(l4, x4));
   cout << endl;
 
-  pause();
   return 0;
 }
 

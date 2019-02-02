@@ -8,7 +8,6 @@ int main(void) {
   int s2[] = {-1, 5, 3, 4, 0};
   ListNode *l2 = createList(s2, 5);
   dumpList(s.sortList(l2));
-  pause();
   return 0;
 }
 

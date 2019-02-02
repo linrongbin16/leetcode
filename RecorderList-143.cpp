@@ -154,7 +154,6 @@ int main(void) {
   s.reorderList(l4);
   dumpList(l4);
 
-  pause();
   return 0;
 }
 

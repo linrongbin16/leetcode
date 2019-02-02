@@ -16,7 +16,6 @@ int main(void) {
   l2 = createList(s4, 1);
   dumpList(s.addTwoNumbers(l1, l2));
 
-  pause();
   return 0;
 }
 

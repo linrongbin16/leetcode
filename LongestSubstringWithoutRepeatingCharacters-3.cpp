@@ -6,7 +6,6 @@ int main(void) {
   cout << s.lengthOfLongestSubstring("bbbbb") << endl;
   cout << s.lengthOfLongestSubstring("pwwkew") << endl;
   cout << s.lengthOfLongestSubstring("abba") << endl;
-  pause();
   return 0;
 }
 

@@ -15,11 +15,6 @@
 #include <vector>
 using namespace std;
 
-void pause() {
-  char x;
-  cin >> x;
-}
-
 struct ListNode {
   int val;
   ListNode *next;

@@ -15,7 +15,6 @@ int main(void) {
   ListNode *l3 = createList(s3, sizeof(s3) / sizeof(int));
   dumpList(s.reverseList(l3));
 
-  pause();
   return 0;
 }
 

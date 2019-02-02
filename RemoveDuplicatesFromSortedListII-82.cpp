@@ -27,7 +27,6 @@ int main(void) {
   dumpList(s.deleteDuplicates(l4));
   cout << endl;
 
-  pause();
   return 0;
 }
 

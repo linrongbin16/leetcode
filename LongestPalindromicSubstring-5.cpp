@@ -9,7 +9,6 @@ int main(void) {
   cout << s.longestPalindrome("aaaa") << endl;
   cout << s.longestPalindrome("ccc") << endl;
   cout << s.longestPalindrome("cbbd") << endl;
-  pause();
   return 0;
 }
 
