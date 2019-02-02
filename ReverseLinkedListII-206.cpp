@@ -1,35 +1,5 @@
 #include "ReverseLinkedListII-206.h"
 
-ListNode *insertTail(ListNode *l, int value) {
-  ListNode *e = new ListNode(value);
-  if (!l) {
-    return e;
-  }
-  ListNode *p = l;
-  while (p->next) {
-    p = p->next;
-  }
-  p->next = e;
-  return l;
-}
-
-ListNode *createList(int *s, int n) {
-  ListNode *l = NULL;
-  for (int i = 0; i < n; i++) {
-    l = insertTail(l, s[i]);
-  }
-  return l;
-}
-
-void dumpList(ListNode *l) {
-  cout << "dump:";
-  while (l) {
-    cout << l->val << " ";
-    l = l->next;
-  }
-  cout << endl;
-}
-
 int main(void) {
   Solution s;
 

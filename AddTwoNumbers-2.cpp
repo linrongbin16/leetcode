@@ -1,24 +1,5 @@
 #include "AddTwoNumbers-2.h"
 
-ListNode *createList(int *s, int n) {
-  ListNode *l = new ListNode(s[0]);
-  ListNode *p = l;
-  for (int i = 1; i < n; i++) {
-    p->next = new ListNode(s[i]);
-    p = p->next;
-  }
-  return l;
-}
-
-void dumpList(ListNode *l) {
-  cout << endl << "[ ";
-  while (l) {
-    cout << l->val << " ";
-    l = l->next;
-  }
-  cout << "]";
-}
-
 int main(void) {
   Solution s;
   ListNode *l1, *l2;

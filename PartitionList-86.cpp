@@ -1,35 +1,5 @@
 #include "PartitionList-86.h"
 
-ListNode *insertTail(ListNode *l, int x) {
-  if (!l) {
-    return new ListNode(x);
-  }
-  ListNode *e = new ListNode(x);
-  ListNode *p = l;
-  while (p->next) {
-    p = p->next;
-  }
-  p->next = e;
-  return l;
-}
-
-ListNode *createList(int *s, int n) {
-  ListNode *l = NULL;
-  for (int i = 0; i < n; i++) {
-    l = insertTail(l, s[i]);
-  }
-  return l;
-}
-
-void dumpList(ListNode *l) {
-  cout << "dump:";
-  while (l) {
-    cout << l->val << " ";
-    l = l->next;
-  }
-  cout << endl;
-}
-
 int main(void) {
   Solution s;
 
