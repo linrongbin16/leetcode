@@ -1,4 +1,4 @@
-#include "std.h"
+#include "LeetCode.h"
 
 struct RandomListNode {
   int label;

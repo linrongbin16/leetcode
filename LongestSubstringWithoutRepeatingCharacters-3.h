@@ -1,4 +1,4 @@
-#include "std.h"
+#include "LeetCode.h"
 
 class Solution {
 public:
@@ -23,7 +23,7 @@ public:
         f[i] = f[i - 1] + 1;
       } else {
         auto lastPos = posMap.find(s[i]);
-        f[i] = min(i - lastPos->second, f[i-1] + 1);
+        f[i] = min(i - lastPos->second, f[i - 1] + 1);
       }
       posMap[s[i]] = i;
     }

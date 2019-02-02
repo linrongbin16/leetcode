@@ -1,4 +1,4 @@
-#include "std.h"
+#include "LeetCode.h"
 
 class Solution {
   bool detectDup(ListNode *e) { return e && e->next && e->val == e->next->val; }

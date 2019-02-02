@@ -16,7 +16,7 @@
 using namespace std;
 
 void pause() {
-  int x;
+  char x;
   cin >> x;
 }
 
