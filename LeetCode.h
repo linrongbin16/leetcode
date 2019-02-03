@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <cassert>
 #include <cmath>
+#include <cstdio>
 #include <cstdlib>
 #include <cstring>
 #include <iostream>
@@ -9,6 +10,7 @@
 #include <map>
 #include <set>
 #include <string>
+#include <tuple>
 #include <unordered_map>
 #include <unordered_set>
 #include <utility>
@@ -47,4 +49,3 @@ void dumpList(ListNode *l) {
   }
   cout << "]" << endl;
 }
-
