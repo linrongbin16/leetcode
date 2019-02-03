@@ -23,5 +23,9 @@ int main(void) {
   ListNode *l5 = createList(s5, sizeof(s5) / sizeof(int));
   dumpList(s.reverseKGroup(l5, k5));
 
+  int s6[] = {1, 2, 3, 4, 5}, k6 = 3;
+  ListNode *l6 = createList(s6, sizeof(s6) / sizeof(int));
+  dumpList(s.reverseKGroup(l6, k6));
+
   return 0;
 }

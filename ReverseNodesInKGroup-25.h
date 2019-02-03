@@ -35,17 +35,19 @@ public:
     while (head) {
       int cnt = 0;
       ListNode *p = NULL, *tmp;
-      while (cnt < k) {
+      while (cnt < k && head) {
         tmp = head->next;
         p = insertHead(p, head);
         head = tmp;
         cnt++;
       }
-      p = reverseList(p);
+      if (cnt == k) {
+        p = reverseList(p);
+      }
       group.push_back(p);
     }
     ListNode *result = NULL, *tail = NULL;
-    for (int i = 0; i < group.size(); i++) {
+    for (int i = group.size() - 1; i >= 0; i--) {
       ListNode *p = group[i], *tmp;
       while (p) {
         tmp = p->next;
