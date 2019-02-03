@@ -1,3 +1,5 @@
-# leetcode
+# LeetCode
 
-just do IT
+--------
+
+A source code collection of [LeetCode](https://leetcode.com/) solutions.
