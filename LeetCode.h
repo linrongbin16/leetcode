@@ -51,3 +51,11 @@ void dumpList(ListNode *l) {
   }
   cout << "]" << endl;
 }
+
+template <class T> inline vector<T> convertVector(T *s, int n) {
+  vector<T> v;
+  for (int i = 0; i < n; i++) {
+    v.push_back(s[i]);
+  }
+  return v;
+}
