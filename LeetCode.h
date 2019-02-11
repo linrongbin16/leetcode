@@ -19,6 +19,19 @@
 #include <vector>
 using namespace std;
 
+/* template */
+/* array to vector */
+
+template <class T> inline vector<T> convertVector(T *s, int n) {
+  vector<T> v;
+  for (int i = 0; i < n; i++) {
+    v.push_back(s[i]);
+  }
+  return v;
+}
+
+/* ListNode */
+
 struct ListNode {
   int val;
   ListNode *next;
@@ -52,10 +65,12 @@ void dumpList(ListNode *l) {
   cout << "]" << endl;
 }
 
-template <class T> inline vector<T> convertVector(T *s, int n) {
-  vector<T> v;
-  for (int i = 0; i < n; i++) {
-    v.push_back(s[i]);
-  }
-  return v;
-}
+/* 2D Pointer */
+
+struct Point {
+  int x;
+  int y;
+  Point() : x(0), y(0) {}
+  Point(int a, int b) : x(a), y(b) {}
+};
+
