@@ -1,5 +1,10 @@
+/**
+ * https://leetcode.com/problems/intersection-of-two-linked-lists/
+ */
+
 #include "LeetCode.h"
 
+// TODO: not pass
 class Solution {
 public:
   ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
@@ -14,4 +19,3 @@ public:
     return p1;
   }
 };
-
