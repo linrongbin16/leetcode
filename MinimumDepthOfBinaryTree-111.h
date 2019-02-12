@@ -5,15 +5,9 @@ class Solution {
     if (!root) {
       return depth;
     }
-    if (root->left && root->right) {
-      int ld = minDepthImpl(root->left, depth + 1);
-      int rd = minDepthImpl(root->right, depth + 1);
-      return min(ld, rd);
-    } else {
-      int ld = minDepthImpl(root->left, depth + 1);
-      int rd = minDepthImpl(root->right, depth + 1);
-      return max(ld, rd);
-    }
+    int ld = minDepthImpl(root->left, depth + 1);
+    int rd = minDepthImpl(root->right, depth + 1);
+    return (root->left && root->right) ? min(ld, rd) : max(ld, rd);
   }
 
 public:
