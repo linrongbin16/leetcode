@@ -1,3 +1,7 @@
+/**
+ * https://leetcode.com/problems/pascals-triangle/
+ */
+
 #include "LeetCode.h"
 
 class Solution {
