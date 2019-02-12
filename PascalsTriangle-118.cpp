@@ -1,7 +1,7 @@
 #include "PascalsTriangle-118.h"
 
 int main(void) {
-  cout << endl;
+  Solution s;
   return 0;
 }
 

@@ -19,8 +19,7 @@
 #include <vector>
 using namespace std;
 
-/* template */
-/* array to vector */
+/* vector */
 
 template <class T> inline vector<T> convertVector(T *s, int n) {
   vector<T> v;
@@ -28,6 +27,15 @@ template <class T> inline vector<T> convertVector(T *s, int n) {
     v.push_back(s[i]);
   }
   return v;
+}
+
+template <class T> inline void dumpVector2D(const vector<vector<T>> &s) {
+  cout << "dump:" << endl;
+  for (int i = 0; i < s.size(); i++) {
+    for (int j = 0; j < s[i].size(); j++) {
+      cout << s[i][j];
+    }
+  }
 }
 
 /* ListNode */
