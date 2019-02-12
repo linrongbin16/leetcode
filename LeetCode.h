@@ -34,8 +34,24 @@ template <class T> inline void dumpVector2D(const vector<vector<T>> &s) {
   for (int i = 0; i < s.size(); i++) {
     for (int j = 0; j < s[i].size(); j++) {
       cout << s[i][j];
+      if (j < s[i].size() - 1) {
+        cout << " ";
+      }
+    }
+    cout << endl;
+  }
+  cout << endl;
+}
+
+template <class T> inline void dumpVector(const vector<T> &s) {
+  cout << "dump:" << endl;
+  for (int i = 0; i < s.size(); i++) {
+    cout << s[i];
+    if (i < s.size() - 1) {
+      cout << " ";
     }
   }
+  cout << endl;
 }
 
 /* ListNode */
@@ -81,4 +97,3 @@ struct Point {
   Point() : x(0), y(0) {}
   Point(int a, int b) : x(a), y(b) {}
 };
-

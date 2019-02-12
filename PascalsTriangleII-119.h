@@ -1,7 +1,6 @@
 #include "LeetCode.h"
 
 class Solution {
-public:
   vector<vector<int>> generate(int numRows) {
     vector<vector<int>> result;
     for (int i = 0; i < numRows; i++) {
@@ -25,4 +24,7 @@ public:
     }
     return result;
   }
+
+public:
+  vector<int> getRow(int rowIndex) { return generate(rowIndex + 1)[rowIndex]; }
 };
