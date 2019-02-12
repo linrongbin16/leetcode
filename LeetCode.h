@@ -44,14 +44,14 @@ template <class T> inline void dumpVector2D(const vector<vector<T>> &s) {
 }
 
 template <class T> inline void dumpVector(const vector<T> &s) {
-  cout << "dumpVector:" << endl;
+  cout << "dumpVector:[";
   for (int i = 0; i < s.size(); i++) {
     cout << s[i];
     if (i < s.size() - 1) {
       cout << " ";
     }
   }
-  cout << endl;
+  cout << "]" << endl;
 }
 
 /* ListNode */
@@ -78,7 +78,7 @@ ListNode *createList(const int *s, int n) {
 }
 
 void dumpList(const ListNode *l) {
-  cout << "dumpList: [";
+  cout << "dumpList:[";
   while (l) {
     cout << l->val;
     if (l->next) {
