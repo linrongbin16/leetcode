@@ -1,3 +1,7 @@
+/**
+ * https://leetcode.com/problems/remove-duplicates-from-sorted-list/
+ */
+
 #include "LeetCode.h"
 
 class Solution {
@@ -29,4 +33,3 @@ public:
     return head;
   }
 };
-
