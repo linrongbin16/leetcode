@@ -124,12 +124,15 @@ TreeNode *createTreeNodeImpl(const int *s, int n, int pos) {
   TreeNode *e = new TreeNode(s[pos]);
   int lc = 2 * pos + 1;
   int rc = 2 * pos + 2;
-  e->left = (lc < n && s[lc] < 0) ? createTreeNodeImpl(s, n, lc) : NULL;
-  e->right = (rc < n && s[rc] < 0) ? createTreeNodeImpl(s, n, rc) : NULL;
+  e->left = (lc < n && s[lc] >= 0) ? createTreeNodeImpl(s, n, lc) : NULL;
+  e->right = (rc < n && s[rc] >= 0) ? createTreeNodeImpl(s, n, rc) : NULL;
   return e;
 }
 
 TreeNode *createTree(const int *s, int n) {
+  if (n <= 0) {
+    return NULL;
+  }
   return createTreeNodeImpl(s, n, 0);
 }
 
