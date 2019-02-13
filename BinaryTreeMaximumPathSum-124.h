@@ -4,29 +4,23 @@
 
 #include "LeetCode.h"
 
-// TODO: not pass
 class Solution {
-  int maxSum(TreeNode *e) {
-    int s = (e) ? e->val : 0;
-    s = max(s, s + ((e && e->left) ? e->left->val : 0));
-    s = max(s, s + ((e && e->right) ? e->right->val : 0));
-    return s;
-  }
-
-  int maxPathSumImpl(TreeNode *e) {
-    if (!e) {
+  int bestToRoot(TreeNode *root, int &bestOverall) {
+    if (!root)
       return 0;
-    }
-    int es = maxSum(e);
-    if (e->left) {
-      es = max(es, maxPathSumImpl(e->left));
-    }
-    if (e->right) {
-      es = max(es, maxPathSumImpl(e->right));
-    }
-    return es;
+    auto left = max(0, bestToRoot(root->left, bestOverall));
+    auto right = max(0, bestToRoot(root->right, bestOverall));
+    // update the best overall value to be the max path including contributions
+    // from both sides
+    bestOverall = max(bestOverall, root->val + left + right);
+    // return the max of the path from the left and the path from the right
+    return max(root->val + left, root->val + right);
   }
 
 public:
-  int maxPathSum(TreeNode *root) { return maxPathSumImpl(root); }
+  int maxPathSum(TreeNode *root) {
+    auto bestOverall = numeric_limits<int>::min();
+    bestToRoot(root, bestOverall);
+    return bestOverall;
+  }
 };
