@@ -140,7 +140,7 @@ void dumpTreeImpl(const TreeNode *e) {
   if (!e) {
     return;
   }
-  cout << "v:" << e->val
+  cout << "val:" << e->val
        << " left:" << ((e->left) ? to_string(e->left->val) : "nil")
        << " right:" << ((e->right) ? to_string(e->right->val) : "nil") << endl;
   dumpTreeImpl(e->left);
