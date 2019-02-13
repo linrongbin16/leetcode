@@ -7,15 +7,17 @@ class Solution {
 
   void preorderTraverse(TreeNode *e) {
     if (!e) {
-      if (add_ == sum_) {
-        has_ = true;
-      }
       return;
     }
     if (has_) {
       return;
     }
     add_ += e->val;
+    if (!e->left && !e->right) {
+      if (add_ == sum_) {
+        has_ = true;
+      }
+    }
     preorderTraverse(e->left);
     preorderTraverse(e->right);
     add_ -= e->val;
