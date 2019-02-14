@@ -26,3 +26,4 @@ public:
     p->next = NULL;
   }
 };
+
