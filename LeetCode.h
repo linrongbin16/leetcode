@@ -7,10 +7,13 @@
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
+#include <deque>
 #include <iostream>
 #include <list>
 #include <map>
+#include <queue>
 #include <set>
+#include <stack>
 #include <string>
 #include <tuple>
 #include <unordered_map>
@@ -120,23 +123,40 @@ struct TreeNode {
   TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 
-TreeNode *createTreeNodeImpl(const int *s, int n, int pos) {
-  TreeNode *e = new TreeNode(s[pos]);
+/* TreeLinkNode  */
+
+struct TreeLinkNode {
+  int val;
+  TreeLinkNode *left, *right, *next;
+  TreeLinkNode(int x) : val(x), left(NULL), right(NULL), next(NULL) {}
+};
+
+template <class T> inline T *createTreeNodeImpl(const int *s, int n, int pos) {
+  T *e = new T(s[pos]);
   int lc = 2 * pos + 1;
   int rc = 2 * pos + 2;
-  e->left = (lc < n && s[lc] > INT_MIN) ? createTreeNodeImpl(s, n, lc) : NULL;
-  e->right = (rc < n && s[rc] > INT_MIN) ? createTreeNodeImpl(s, n, rc) : NULL;
+  e->left =
+      (lc < n && s[lc] > INT_MIN) ? createTreeNodeImpl<T>(s, n, lc) : NULL;
+  e->right =
+      (rc < n && s[rc] > INT_MIN) ? createTreeNodeImpl<T>(s, n, rc) : NULL;
   return e;
 }
 
-TreeNode *createTree(const int *s, int n) {
+inline TreeNode *createTree(const int *s, int n) {
   if (n <= 0) {
     return NULL;
   }
-  return createTreeNodeImpl(s, n, 0);
+  return createTreeNodeImpl<TreeNode>(s, n, 0);
 }
 
-void dumpTreeImpl(const TreeNode *e) {
+inline TreeLinkNode *createLinkTree(const int *s, int n) {
+  if (n <= 0) {
+    return NULL;
+  }
+  return createTreeNodeImpl<TreeLinkNode>(s, n, 0);
+}
+
+inline void dumpTreeImpl(const TreeNode *e) {
   if (!e) {
     return;
   }
@@ -147,7 +167,19 @@ void dumpTreeImpl(const TreeNode *e) {
   dumpTreeImpl(e->right);
 }
 
-void dumpTree(const TreeNode *e) {
+inline void dumpTreeImpl(const TreeLinkNode *e) {
+  if (!e) {
+    return;
+  }
+  cout << "val:" << e->val
+       << " next:" << ((e->next) ? to_string(e->next->val) : "nil")
+       << " left:" << ((e->left) ? to_string(e->left->val) : "nil")
+       << " right:" << ((e->right) ? to_string(e->right->val) : "nil") << endl;
+  dumpTreeImpl(e->left);
+  dumpTreeImpl(e->right);
+}
+
+template <class T> inline void dumpTree(const T *e) {
   cout << "dumpTree:" << endl;
   dumpTreeImpl(e);
   cout << endl;
