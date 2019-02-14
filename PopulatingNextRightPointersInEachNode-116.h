@@ -1,3 +1,7 @@
+/**
+ * https://leetcode.com/problems/populating-next-right-pointers-in-each-node/
+ */
+
 #include "LeetCode.h"
 
 class Solution {
@@ -35,3 +39,4 @@ public:
     } // while
   }
 };
+
