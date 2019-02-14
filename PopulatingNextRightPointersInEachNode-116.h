@@ -25,12 +25,8 @@ public:
       if (count > 1 && count <= nc && prev && current) {
         prev->next = current;
       }
-      if (current->left) {
-        q.push(current->left);
-      }
-      if (current->right) {
-        q.push(current->right);
-      }
+      q.push(current->left);
+      q.push(current->right);
       if (count >= nc) {
         count = 0;
         level++;
