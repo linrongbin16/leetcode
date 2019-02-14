@@ -3,7 +3,7 @@
 class Solution {
   long nodeCount(int level) {
     level -= 1;
-    return 2 << level;
+    return 1 << level;
   }
 
 public:
@@ -14,20 +14,26 @@ public:
     queue<TreeLinkNode *> q;
     q.push(root);
     int level = 1;
-    int count = 0;
+    long count = 0;
     TreeLinkNode *prev = NULL, *current = NULL;
 
     while (!q.empty()) {
-      current = q.back();
+      current = q.front();
+      q.pop();
       count++;
-
-      
-
+      long nc = nodeCount(level);
+      if (count > 1 && count <= nc && prev && current) {
+        prev->next = current;
+      }
       if (current->left) {
         q.push(current->left);
       }
       if (current->right) {
         q.push(current->right);
+      }
+      if (count >= nc) {
+        count = 0;
+        level++;
       }
       prev = current;
     } // while
