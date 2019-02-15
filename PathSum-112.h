@@ -39,4 +39,3 @@ public:
     return has_;
   }
 };
-
