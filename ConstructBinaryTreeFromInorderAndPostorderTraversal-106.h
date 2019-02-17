@@ -4,7 +4,7 @@ class Solution {
   TreeNode *create(vector<int> &inorder, vector<int> &postorder, int is, int ie,
                    int ps, int pe) {
     if (ps > pe) {
-      return nullptr;
+      return NULL;
     }
     TreeNode *node = new TreeNode(postorder[pe]);
     int pos;
