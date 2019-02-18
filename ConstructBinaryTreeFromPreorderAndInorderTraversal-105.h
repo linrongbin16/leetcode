@@ -1,3 +1,7 @@
+/**
+ * https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
+ */
+
 #include "LeetCode.h"
 
 class Solution {
@@ -14,12 +18,8 @@ class Solution {
         break;
       }
     }
-    e->left = (pos < 0) ? NULL
-                        : create(preorder, inorder, ps + 1, ps + pos - is, is,
-                                 pos - 1);
-    e->right = (pos < 0) ? NULL
-                         : create(preorder, inorder, ps + pos - is + 1, pe,
-                                  pos + 1, ie);
+    e->left = create(preorder, inorder, ps + 1, ps + pos - is, is, pos - 1);
+    e->right = create(preorder, inorder, ps + pos - is + 1, pe, pos + 1, ie);
     return e;
   }
 
