@@ -6,7 +6,7 @@ class Solution {
     if (ps > pe) {
       return NULL;
     }
-    int pos;
+    int pos = -1;
     TreeNode *e = new TreeNode(preorder[ps]);
     for (int i = is; i <= ie; i++) {
       if (inorder[i] == preorder[ps]) {
@@ -14,8 +14,12 @@ class Solution {
         break;
       }
     }
-    e->left = create(preorder, inorder, ps + 1, ps + pos, pe, pos - 1);
-    e->right = create(preorder, inorder, pe - ps - pos, pe, pos + 1, ie - pos);
+    e->left = (pos < 0) ? NULL
+                        : create(preorder, inorder, ps + 1, ps + pos - is, is,
+                                 pos - 1);
+    e->right = (pos < 0) ? NULL
+                         : create(preorder, inorder, ps + pos - is + 1, pe,
+                                  pos + 1, ie);
     return e;
   }
 
@@ -25,4 +29,3 @@ public:
                   inorder.size() - 1);
   }
 };
-

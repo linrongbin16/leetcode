@@ -8,6 +8,10 @@ int main(void) {
   vector<int> vi1 = convertVector(si1, sizeof(si1) / sizeof(int));
   dumpTree(s.buildTree(vp1, vi1));
 
+  int sp2[] = {3, 9, 20, 15, 7}, si2[] = {9, 3, 15, 20, 7};
+  vector<int> vp2 = convertVector(sp2, sizeof(sp2) / sizeof(int));
+  vector<int> vi2 = convertVector(si2, sizeof(si2) / sizeof(int));
+  dumpTree(s.buildTree(vp2, vi2));
+
   return 0;
 }
-
