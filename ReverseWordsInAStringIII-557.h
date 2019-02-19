@@ -1,5 +1,5 @@
 /**
- * https://leetcode.com/problems/reverse-words-in-a-string/
+ * https://leetcode.com/problems/reverse-words-in-a-string-iii/
  */
 
 #include "LeetCode.h"
@@ -26,24 +26,16 @@ class Solution {
   }
 
 public:
-  void reverseWords(string &s) {
-    vector<string> words;
+  string reverseWords(string s) {
     int pos = 0;
     while (pos < s.length()) {
       pair<int, int> p = firstWord(s, pos);
       if (p.first < 0 || p.second < 0) {
         break;
       }
-      words.push_back(string(s, p.first, p.second - p.first + 1));
+      reverse(s.begin() + p.first, s.begin() + p.second + 1);
       pos = p.second + 1;
     }
-    string result = "";
-    for (int i = words.size() - 1; i >= 0; i--) {
-      result = result + words[i];
-      if (i > 0) {
-        result = result + " ";
-      }
-    }
-    s = result;
+    return s;
   }
 };
