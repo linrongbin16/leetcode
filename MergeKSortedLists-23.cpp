@@ -10,7 +10,8 @@ int main(void) {
   ListNode *l2 = createList(s2, sizeof(s2) / sizeof(int));
   ListNode *l3 = createList(s3, sizeof(s3) / sizeof(int));
 
-  dumpList(s.mergeKLists(vector<ListNode *>{l1, l2, l3}));
+  vector<ListNode *> v = {l1, l2, l3};
+  dumpList(s.mergeKLists(v));
 
   return 0;
 }
