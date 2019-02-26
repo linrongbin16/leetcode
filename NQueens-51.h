@@ -8,6 +8,7 @@ class Solution {
   int n_;
   vector<vector<string>> result_;
   vector<int> visit_;
+  char **tab_;
 
   vector<string> parse(vector<int> &s) {
     vector<string> r;
@@ -20,7 +21,7 @@ class Solution {
   }
 
   void recursive(vector<int> &s, int p) {
-    if (s.size() == n_) {
+    if (p == n_) {
       result_.push_back(parse(s));
       return;
     }
@@ -29,9 +30,8 @@ class Solution {
         continue;
       }
       visit_[i] = 1;
-      s.push_back(i);
+      s[p] = i;
       recursive(s, p + 1);
-      s.pop_back();
       visit_[i] = 0;
     }
   }
@@ -44,7 +44,8 @@ public:
     for (int i = 0; i < n_; i++) {
       visit_[i] = 0;
     }
-    vector<int> tmp;
+    vector<int> tmp(n_);
+    recursive(tmp, 0);
     return result_;
   }
 };
