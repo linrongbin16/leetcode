@@ -13,6 +13,9 @@ class Solution {
     tab_ = new char *[n_];
     for (int i = 0; i < n_; i++) {
       tab_[i] = new char[n_];
+      for (int j = 0; j < n_; j++) {
+        tab_[i][j] = '.';
+      }
     }
   }
 
@@ -26,9 +29,9 @@ class Solution {
   vector<string> parse() {
     vector<string> r;
     for (int i = 0; i < n_; i++) {
-      string t = "";
+      string t(n_, '.');
       for (int j = 0; j < n_; j++) {
-        t = t + tab_[i][j];
+        t[j] = tab_[i][j];
       }
       r.push_back(t);
     }
@@ -71,7 +74,7 @@ class Solution {
       return;
     }
     for (int i = 0; i < n_; i++) {
-      if (validPos(p, i)) {
+      if (!validPos(p, i)) {
         continue;
       }
       tab_[p][i] = 'Q';

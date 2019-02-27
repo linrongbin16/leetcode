@@ -1,9 +1,16 @@
 #include "NQueens-51.h"
 
 void printResult(const vector<vector<string>> &r) {
+  if (r.size() == 0) {
+    cout << "empty" << endl << endl;
+    return;
+  }
   for (int i = 0; i < r.size(); i++) {
     for (int j = 0; j < r[i].size(); j++) {
-      cout << r[i][j] << endl;
+      for (int k = 0; k < r[i][j].length(); k++) {
+        cout << r[i][j][k];
+      }
+      cout << endl;
     }
     cout << endl;
   }
