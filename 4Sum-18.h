@@ -5,9 +5,17 @@
 #include "LeetCode.h"
 
 class Solution {
-  int *tb_;
+  vector<int> tb_;
   int quad_;
   vector<vector<int>> result_;
+
+  void printTb() {
+    cout << "tb: ";
+    for (int i = 0; i < tb_.size(); i++) {
+      cout << tb_[i] << " ";
+    }
+    cout << endl;
+  }
 
   bool exist(vector<int> &t) {
     for (int i = 0; i < result_.size(); i++) {
@@ -18,13 +26,14 @@ class Solution {
     return false;
   }
 
-  void recursion(vector<int> &nums, int target, int *tb, int p) {
-    if (quad_ >= 4 || p >= nums.size()) {
+  void recursion(vector<int> &nums, int target, vector<int> &tb, int p) {
+    if (quad_ == 4 || p >= nums.size()) {
       int sum = 0;
       for (int i = 0; i < nums.size(); i++) {
         sum += (tb[i]) ? nums[i] : 0;
       }
       if (sum == target) {
+        printTb();
         vector<int> tmp;
         for (int i = 0; i < nums.size(); i++) {
           if (tb[i]) {
@@ -54,13 +63,13 @@ public:
   vector<vector<int>> fourSum(vector<int> &nums, int target) {
     sort(nums.begin(), nums.end());
     result_.clear();
-    tb_ = new int[nums.size()];
+    tb_.clear();
+    tb_.resize(nums.size());
     for (int i = 0; i < nums.size(); i++) {
       tb_[i] = 0;
     }
     quad_ = 0;
     recursion(nums, target, tb_, 0);
-    delete[] tb_;
     return result_;
   }
 };
