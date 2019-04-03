@@ -185,3 +185,12 @@ template <class T> inline void dumpTree(const T *e) {
   dumpTreeImpl(e);
   cout << endl;
 }
+
+/* Interval */
+
+struct Interval {
+  int start;
+  int end;
+  Interval() : start(0), end(0) {}
+  Interval(int s, int e) : start(s), end(e) {}
+};
