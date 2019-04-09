@@ -23,41 +23,6 @@
 #include <vector>
 using namespace std;
 
-/* vector */
-
-template <class T> inline vector<T> convertVector(const T *s, int n) {
-  vector<T> v;
-  for (int i = 0; i < n; i++) {
-    v.push_back(s[i]);
-  }
-  return v;
-}
-
-template <class T> inline void dumpVector2D(const vector<vector<T>> &s) {
-  cout << "dumpVector2D:" << endl;
-  for (int i = 0; i < s.size(); i++) {
-    for (int j = 0; j < s[i].size(); j++) {
-      cout << s[i][j];
-      if (j < s[i].size() - 1) {
-        cout << " ";
-      }
-    }
-    cout << endl;
-  }
-  cout << endl;
-}
-
-template <class T> inline void dumpVector(const vector<T> &s) {
-  cout << "dumpVector:[";
-  for (int i = 0; i < s.size(); i++) {
-    cout << s[i];
-    if (i < s.size() - 1) {
-      cout << " ";
-    }
-  }
-  cout << "]" << endl;
-}
-
 /* ListNode */
 
 struct ListNode {
@@ -66,7 +31,7 @@ struct ListNode {
   ListNode(int x) : val(x), next(NULL) {}
 };
 
-ListNode *createList(const int *s, int n) {
+inline ListNode *createList(const int *s, int n) {
   ListNode *l = NULL, *p = NULL;
   for (int i = 0; i < n; i++) {
     ListNode *e = new ListNode(s[i]);
@@ -81,7 +46,7 @@ ListNode *createList(const int *s, int n) {
   return l;
 }
 
-void dumpList(const ListNode *l) {
+inline void dumpList(const ListNode *l) {
   cout << "dumpList:[";
   while (l) {
     cout << l->val;
@@ -102,17 +67,8 @@ struct Point {
   Point(int a, int b) : x(a), y(b) {}
 };
 
-void dumpPointer(const Point &p) { cout << "(" << p.x << "," << p.y << ")"; }
-
-void dumpPointerVector(const vector<Point> &pv) {
-  cout << "dumpPointVector:";
-  for (int i = 0; i < pv.size(); i++) {
-    dumpPointer(pv[i]);
-    if (i != pv.size() - 1) {
-      cout << " ";
-    }
-  }
-  cout << endl;
+inline void dumpPointer(const Point &p) {
+  cout << "(" << p.x << "," << p.y << ")";
 }
 
 /* TreeNode */
@@ -194,3 +150,64 @@ struct Interval {
   Interval() : start(0), end(0) {}
   Interval(int s, int e) : start(s), end(e) {}
 };
+
+inline void dumpInterval(const Interval &t) {
+  cout << "(" << t.start << "," << t.end << ")";
+}
+
+/* vector */
+
+template <class T> inline vector<T> convertVector(const T *s, int n) {
+  vector<T> v;
+  for (int i = 0; i < n; i++) {
+    v.push_back(s[i]);
+  }
+  return v;
+}
+
+template <class T> inline void dumpVector2D(const vector<vector<T>> &s) {
+  cout << "dumpVector2D:" << endl;
+  for (int i = 0; i < s.size(); i++) {
+    for (int j = 0; j < s[i].size(); j++) {
+      cout << s[i][j];
+      if (j < s[i].size() - 1) {
+        cout << " ";
+      }
+    }
+    cout << endl;
+  }
+  cout << endl;
+}
+
+template <class T> inline void dumpVector(const vector<T> &s) {
+  cout << "dumpVector:[";
+  for (int i = 0; i < s.size(); i++) {
+    cout << s[i];
+    if (i < s.size() - 1) {
+      cout << " ";
+    }
+  }
+  cout << "]" << endl;
+}
+
+inline void dumpVector(const vector<Interval> &s) {
+  cout << "dumpVector:[";
+  for (int i = 0; i < s.size(); i++) {
+    dumpInterval(s[i]);
+    if (i < s.size() - 1) {
+      cout << " ";
+    }
+  }
+  cout << "]" << endl;
+}
+
+inline void dumpVector(const vector<Point> &s) {
+  cout << "dumpVector:[";
+  for (int i = 0; i < s.size(); i++) {
+    dumpPointer(s[i]);
+    if (i < s.size() - 1) {
+      cout << " ";
+    }
+  }
+  cout << "]" << endl;
+}
